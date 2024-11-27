@@ -1,8 +1,8 @@
 <?php
-$host = 'sql.wsfdb.cn';
+$host = '1.1.1';
 $port = '3306';
-$dbname = 'manjjihw';
-$username = 'manjjihw';
+$dbname = 'jjj';
+$username = 'jjj';
 $password = '123';
 
 try {
