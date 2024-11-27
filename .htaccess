@@ -1,0 +1,8 @@
+# .htaccess
+<Files ~ "\.(html|htm)$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+
+
