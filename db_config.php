@@ -3,7 +3,7 @@ $host = 'sql.wsfdb.cn';
 $port = '3306';
 $dbname = 'manjjihw';
 $username = 'manjjihw';
-$password = '13582Lxx';
+$password = '123';
 
 try {
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
