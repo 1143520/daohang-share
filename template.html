@@ -1073,7 +1073,7 @@
             right: 0;
             top: 0;
             width: 100px;
-            /* 悬停区域度 */
+            /* 悬停区域��� */
             height: 100px;
             /* 悬停区域高度 */
             z-index: 99;
@@ -1656,7 +1656,7 @@
             color: rgba(255, 255, 255, 0.85);
         }
 
-        /* 修改深色式下拉框激活状态的样式 */
+        /* 修改���色式下拉框激活状态的样式 */
         [data-theme="dark"] select:focus {
             outline: none;
             border-color: rgba(255, 255, 255, 0.2);
@@ -3855,13 +3855,13 @@
         </div>
     </div>
 
-    <div class="settings-area">
+    <div class="settings-area" style="display: none;"> <!-- 初始隐藏 -->
         <div class="settings-btn" onclick="openSettings()">
             <i class="material-icons">settings</i>
         </div>
     </div>
 
-    <div class="quick-save-area">
+    <div class="quick-save-area" style="display: none;"> <!-- 初始隐藏 -->
         <div class="quick-save-btn" onclick="quickSave()" title="快速保存所有更改">
             <i class="material-icons">save</i>
         </div>
@@ -4923,6 +4923,8 @@
             const lockIcon = document.getElementById('lockIcon');
             const lockText = document.getElementById('lockText');
             const addButton = document.querySelector('.add-button');
+            const settingsArea = document.querySelector('.settings-area');
+            const quickSaveArea = document.querySelector('.quick-save-area');
 
             // 获取当前设置
             const settings = JSON.parse(localStorage.getItem('siteSettings')) || getDefaultSettings();
@@ -4934,6 +4936,12 @@
 
                 if (addButton) {
                     addButton.style.display = 'none';
+                }
+                if (settingsArea) {
+                    settingsArea.style.display = 'none'; // 隐藏设置按钮
+                }
+                if (quickSaveArea) {
+                    quickSaveArea.style.display = 'none'; // 隐藏保存按钮
                 }
             } else {
                 body.classList.remove('locked');
@@ -4959,8 +4967,14 @@
                     addButton.style.opacity = '1';
                     addButton.style.transform = 'translateY(0)';
                 }
+                if (settingsArea) {
+                    settingsArea.style.display = 'flex'; // 显示设置按钮
+                }
+                if (quickSaveArea) {
+                    quickSaveArea.style.display = 'flex'; // 显示保存按钮
+                }
 
-                // 示空格快捷键提示
+                // 显示空格快捷键提示
                 showToast('按空格键快速打开 Google');
             }
 
@@ -7445,7 +7459,7 @@
             window.addEventListener('load', detectDevTools);
         }
 
-        // 在页面可见性改变时重新检测
+        // ���页面可见性改变时重新检测
         document.addEventListener('visibilitychange', function () {
             if (!document.hidden) {
                 detectDevTools();
